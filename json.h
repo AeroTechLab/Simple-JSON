@@ -53,6 +53,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+/// @file json.h
+/// @brief Functions to create, delete, read and write JSON data structures
+
 #ifndef JSON_H
 #define JSON_H
 
@@ -161,4 +164,4 @@ JSONNode* JSON_AddIndex( JSONNode* root, long type );
 }
 #endif
 
-#endif
+#endif // JSON_H
