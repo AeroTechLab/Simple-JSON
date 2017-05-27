@@ -91,9 +91,9 @@ JSONNode;
 
 #define JSON_IS_INTERNAL( node ) ( (node)->type == JSON_TYPE_BRACKET || (node)->type == JSON_TYPE_BRACE )
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//#ifdef __cplusplus
+//extern "C" {
+//#endif
 
 /// @brief Generate JSON tree data structure from a serialized JSON string
 /// @param jsonString serialized JSON string
@@ -160,8 +160,8 @@ JSONNode* JSON_AddKey( JSONNode* root, long type, const char* key );
 /// @return reference/pointer to newly created child node. NULL on errors
 JSONNode* JSON_AddIndex( JSONNode* root, long type );
 
-#ifdef __cplusplus
-}
-#endif
+//#ifdef __cplusplus
+//}
+//#endif
 
 #endif // JSON_H
