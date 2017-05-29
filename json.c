@@ -60,15 +60,28 @@
 #include <stdio.h>
 #include "json.h"
 
+
+struct _JSONNodeData 
+{
+  unsigned long long type:3, childrenCount:61;
+  char* key;
+  union 
+  {
+    struct _JSONNodeData** childrenList;
+    char *value;
+  };
+};
+
+
 const char *NULL_STR = "null";
 const char *TRUE_STR = "true";
 const char *FALSE_STR = "false";
 
 
-JSONNode* JSON_ParseRecursive( const char** ref_jsonString, int* error )
+JSONNode JSON_ParseRecursive( const char** ref_jsonString, int* error )
 {
   const char* ref_jsonToken;
-  JSONNode* root = JSON_Create( JSON_TYPE_NULL, NULL );
+  JSONNode root = JSON_Create( JSON_TYPE_NULL, NULL );
   *error = JSON_OK;
   for( ref_jsonToken = *ref_jsonString; *ref_jsonToken != 0; ++ref_jsonToken ) {
     while( *ref_jsonToken && isspace( *ref_jsonToken ) ) ++ref_jsonToken;
@@ -80,10 +93,10 @@ JSONNode* JSON_ParseRecursive( const char** ref_jsonString, int* error )
       root->type = ( *(ref_jsonToken++) == '[' ) ? JSON_TYPE_BRACKET : JSON_TYPE_BRACE;
       while( *ref_jsonToken != delimiter && *error == JSON_OK ) 
       {
-        JSONNode* v = JSON_ParseRecursive( &ref_jsonToken, error );
+        JSONNode v = JSON_ParseRecursive( &ref_jsonToken, error );
         if( v ) 
         {
-          root->childrenList = (JSONNode**) realloc( root->childrenList, (size_t) ( root->childrenCount + 1 ) * sizeof(JSONNode*) );
+          root->childrenList = (JSONNode*) realloc( root->childrenList, (size_t) ( root->childrenCount + 1 ) * sizeof(JSONNode) );
           root->childrenList[ root->childrenCount++ ] = v;
           if( delimiter == ']' ) v->key = NULL;
         }
@@ -143,10 +156,10 @@ JSONNode* JSON_ParseRecursive( const char** ref_jsonString, int* error )
   return root;
 }
 
-JSONNode* JSON_Parse( const char *jsonString )
+JSONNode JSON_Parse( const char *jsonString )
 {
   int error;
-  JSONNode* root = JSON_ParseRecursive( &jsonString, &error );
+  JSONNode root = JSON_ParseRecursive( &jsonString, &error );
   if( !root->type || error != JSON_OK ) 
   {
     JSON_Destroy( root );
@@ -155,9 +168,9 @@ JSONNode* JSON_Parse( const char *jsonString )
   return root;
 }
 
-JSONNode* JSON_Create( long type, const char* key )
+JSONNode JSON_Create( long type, const char* key )
 {
-  JSONNode* newNode = (JSONNode*) malloc( sizeof(JSONNode) );
+  JSONNode newNode = (JSONNode) malloc( sizeof(JSONNodeData) );
   newNode->key = NULL;
   if( key ) 
   {
@@ -171,35 +184,35 @@ JSONNode* JSON_Create( long type, const char* key )
   return newNode;
 }
 
-JSONNode* JSON_AddNode( JSONNode *root, long type, const char *key )
+JSONNode JSON_AddNode( JSONNode root, long type, const char *key )
 {
   if( root->childrenCount++ == 0 ) root->childrenList = NULL;
-  root->childrenList = (JSONNode**) realloc( root->childrenList, (size_t) root->childrenCount * sizeof(JSONNode*) );
+  root->childrenList = (JSONNode*) realloc( root->childrenList, (size_t) root->childrenCount * sizeof(JSONNode) );
   root->childrenList[ root->childrenCount - 1 ] = JSON_Create( type, key );
   if( root->childrenList[ root->childrenCount - 1 ]->type == JSON_TYPE_NULL ) 
     JSON_Set( root->childrenList[ root->childrenCount - 1 ], NULL );
   return root->childrenList[ root->childrenCount - 1 ];
 }
 
-JSONNode* JSON_AddKey( JSONNode* root, long type, const char* key )
+JSONNode JSON_AddKey( JSONNode root, long type, const char* key )
 {
   if( root->type != JSON_TYPE_BRACE ) return NULL;
   for( long childIndex = 0; childIndex < (long) root->childrenCount; ++childIndex ) 
   {
-    JSONNode* child = root->childrenList[ childIndex ];
+    JSONNode child = root->childrenList[ childIndex ];
     if( child->key != NULL && strcmp( child->key, key ) == 0 )
     return child; // (child->type == type) ? child : NULL;
   }
   return JSON_AddNode( root, type, key );
 }
 
-JSONNode* JSON_AddIndex( JSONNode* root, long type )
+JSONNode JSON_AddIndex( JSONNode root, long type )
 {
   if( root->type != JSON_TYPE_BRACKET ) return NULL;
   return JSON_AddNode( root, type, NULL );
 }
 
-void JSON_Set( JSONNode* root, const char* value )
+void JSON_Set( JSONNode root, const char* value )
 {
   if( JSON_IS_INTERNAL( root ) ) return;
   if( root->value ) 
@@ -216,7 +229,7 @@ void JSON_Set( JSONNode* root, const char* value )
   }
 }
 
-void JSON_Clear( JSONNode *root )
+void JSON_Clear( JSONNode root )
 {
   if( root == NULL ) return;
   if( JSON_IS_INTERNAL( root ) ) 
@@ -237,7 +250,7 @@ void JSON_Clear( JSONNode *root )
   root->childrenCount = 0;
 }
 
-void JSON_Destroy( JSONNode* root )
+void JSON_Destroy( JSONNode root )
 {
   if( root ) return;
   JSON_Clear( root );
@@ -246,29 +259,29 @@ void JSON_Destroy( JSONNode* root )
   free( root );
 }
 
-JSONNode* JSON_FindByKey( const JSONNode* root, const char* key )
+JSONNode JSON_FindByKey( const JSONNode root, const char* key )
 {
   if( !JSON_IS_INTERNAL( root ) ) return NULL;
   for( long childIndex = 0; childIndex < (long) root->childrenCount; ++childIndex ) 
   {
-    JSONNode *child = root->childrenList[ childIndex ];
+    JSONNode child = root->childrenList[ childIndex ];
     if( child->key && strcmp( child->key, key ) == 0 )
       return child;
   }
   return NULL;
 }
 
-JSONNode* JSON_FindByIndex( const JSONNode* root, long index )
+JSONNode JSON_FindByIndex( const JSONNode root, long index )
 {
   if( !JSON_IS_INTERNAL( root ) ) return NULL;
   return( 0 <= index && index < (long) root->childrenCount ) ? root->childrenList[ index ] : NULL;
 }
 
-JSONNode* JSON_FindByPath( const JSONNode* root, int pathArgsCount, ... )
+JSONNode JSON_FindByPath( const JSONNode root, int pathArgsCount, ... )
 {
   va_list pathArgsList;
   va_start( pathArgsList, pathArgsCount );
-  JSONNode* child = (JSONNode*) root;
+  JSONNode child = (JSONNode) root;
   while( child != NULL && pathArgsCount > 0 ) 
   {
     if( child->type == JSON_TYPE_BRACE ) 
@@ -283,7 +296,7 @@ JSONNode* JSON_FindByPath( const JSONNode* root, int pathArgsCount, ... )
   return child;
 }
 
-char* JSON_GetString( const JSONNode* root, int depth )
+char* JSON_GetString( const JSONNode root, int depth )
 {
   size_t paddingLength = ( depth >= 0 ) ? 2 * depth : 0;               // Padding length for idented mode
   size_t jsonStringLength = paddingLength;
@@ -352,7 +365,7 @@ char* JSON_GetString( const JSONNode* root, int depth )
   return jsonString;
 }
 
-void JSON_Print( const JSONNode* root )
+void JSON_Print( const JSONNode root )
 {
   char* jsonString = JSON_GetString( root, JSON_FORMAT_IDENT );
   fputs( jsonString, stdout );

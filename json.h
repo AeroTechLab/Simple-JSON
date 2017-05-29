@@ -77,83 +77,76 @@
 #define JSON_FORMAT_IDENT    0
 
 
-/// JSON data tree node structure/object
-typedef struct _JSONNode {
-  unsigned long long type:3, childrenCount:61;
-  char* key;
-  union 
-  {
-    struct _JSONNode** childrenList;
-    char *value;
-  };
-} 
-JSONNode;
+/// JSON node tree internal data structure/object
+typedef struct _JSONNodeData JSONNodeData;
+/// Opaque reference to JSON node tree data structure/object
+typedef JSONNodeData* JSONNode;
 
 #define JSON_IS_INTERNAL( node ) ( (node)->type == JSON_TYPE_BRACKET || (node)->type == JSON_TYPE_BRACE )
 
 /// @brief Generate JSON tree data structure from a serialized JSON string
 /// @param jsonString serialized JSON string
 /// @return reference/pointer to root node of generated JSON tree data structure
-JSONNode* JSON_Parse( const char* jsonString );
+JSONNode JSON_Parse( const char* jsonString );
 
 /// @brief Create root/base JSON node of given type
 /// @param type enum value defining node type (JSON_TYPE_{NULL,BOOLEAN,NUMBER,STRING,BRACKET,BRACE})
 /// @param key string key to index the node. NULL for node without key
 /// @return reference/pointer to created node. NULL on errors
-JSONNode* JSON_Create( long type, const char* key );
+JSONNode JSON_Create( long type, const char* key );
 
 /// @brief Set value of given JSON node
 /// @param root node for which the value will be set
 /// @param value node value in string form
-void JSON_Set( JSONNode* root, const char* value );
+void JSON_Set( JSONNode root, const char* value );
     
 /// @brief Clear value of given node or destroy its children, if internal
 /// @param root node from which the clearing starts
-void JSON_Clear( JSONNode* root );
+void JSON_Clear( JSONNode root );
     
 /// @brief Destroy given node and its children, if any
 /// @param root node to be destroyed
-void JSON_Destroy( JSONNode* root );
+void JSON_Destroy( JSONNode root );
     
 /// @brief Find node (inside a BRACE type node) by its key
 /// @param root pointer to the node (BRACE type) where search will be performed
 /// @param key key of searched node
 /// @return reference/pointer to found node. NULL if nothing is found
-JSONNode* JSON_FindByKey( const JSONNode* root, const char* key );
+JSONNode JSON_FindByKey( const JSONNode root, const char* key );
     
 /// @brief Find node (inside a BRACKET type node) by its index
 /// @param root pointer to the node (BRACKET type) where search will be performed
 /// @param index index of searched node
 /// @return reference/pointer to found node. NULL if nothing is found
-JSONNode* JSON_FindByIndex( const JSONNode* root, long index );
+JSONNode JSON_FindByIndex( const JSONNode root, long index );
     
 /// @brief Find node following a sequence of keys and/or indexes
 /// @param root pointer to the node from where search will be performed
 /// @param pathArgsCount number of parameters for the subsequent variable lenght arguments list
 /// @return reference/pointer to found node. NULL if nothing is found
-JSONNode* JSON_FindByPath( const JSONNode* root, int pathArgsCount, ... );
+JSONNode JSON_FindByPath( const JSONNode root, int pathArgsCount, ... );
     
 /// @brief Display JSON data tree as a formatted string
 /// @param root root/base node of the tree to be displayed
-void JSON_Print( const JSONNode* root );
+void JSON_Print( const JSONNode root );
     
 /// @brief Write JSON data tree to a string
 /// @param root root/base node of the tree to be written
 /// @param mode format of the string representation. Serialized (JSON_FMT_SERIAL) or idented (JSON_FMT_IDENT)
 /// @return reference/pointer to allocated string containing JSON data. Must be freed manually
-char* JSON_GetString( const JSONNode* root, int mode );
+char* JSON_GetString( const JSONNode root, int mode );
     
 /// @brief Add JSON node to JSON_TYPE_BRACE type node
 /// @param root parent JSON_TYPE_BRACE type node to which new node will be added
 /// @param type type of new child node to be added
 /// @param key key of new child node to be added
 /// @return reference/pointer to newly created child node. NULL on errors
-JSONNode* JSON_AddKey( JSONNode* root, long type, const char* key );
+JSONNode JSON_AddKey( JSONNode root, long type, const char* key );
     
 /// @brief Append JSON node to JSON_TYPE_BRACKET type node
 /// @param root parent JSON_TYPE_BRACKET type node to which new node will be appended
 /// @param type type of new child node to be appended
 /// @return reference/pointer to newly created child node. NULL on errors
-JSONNode* JSON_AddIndex( JSONNode* root, long type );
+JSONNode JSON_AddIndex( JSONNode root, long type );
 
 #endif // JSON_H
