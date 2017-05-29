@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simple_2djson',['Simple-JSON',['../index.html',1,'']]]
+  ['simple_20json',['Simple JSON',['../index.html',1,'']]]
 ];

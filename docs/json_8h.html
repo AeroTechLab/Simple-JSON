@@ -59,7 +59,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -74,12 +73,6 @@ $(function() {
 </div>
 <p><a href="json_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__JSONNode.html">_JSONNode</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON data tree node structure/object.  <a href="struct__JSONNode.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:afb8872aec15553ebfa1bb34a9076dc58"><td class="memItemLeft" align="right" valign="top"><a id="afb8872aec15553ebfa1bb34a9076dc58"></a>
@@ -124,63 +117,67 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a4e486251f655e74cae7f394ca82647e3"><td class="memItemLeft" align="right" valign="top"><a id="a4e486251f655e74cae7f394ca82647e3"></a>
-typedef struct <a class="el" href="struct__JSONNode.html">_JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a></td></tr>
-<tr class="memdesc:a4e486251f655e74cae7f394ca82647e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON data tree node structure/object. <br /></td></tr>
-<tr class="separator:a4e486251f655e74cae7f394ca82647e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c8f8b82a2d7a1360068f4c2db4b29b"><td class="memItemLeft" align="right" valign="top"><a id="aa8c8f8b82a2d7a1360068f4c2db4b29b"></a>
+typedef struct _JSONNodeData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aa8c8f8b82a2d7a1360068f4c2db4b29b">JSONNodeData</a></td></tr>
+<tr class="memdesc:aa8c8f8b82a2d7a1360068f4c2db4b29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON node tree internal data structure/object. <br /></td></tr>
+<tr class="separator:aa8c8f8b82a2d7a1360068f4c2db4b29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb081af11c781d6f4eb55a746bc7689"><td class="memItemLeft" align="right" valign="top"><a id="a9cb081af11c781d6f4eb55a746bc7689"></a>
+typedef <a class="el" href="json_8h.html#aa8c8f8b82a2d7a1360068f4c2db4b29b">JSONNodeData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a></td></tr>
+<tr class="memdesc:a9cb081af11c781d6f4eb55a746bc7689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opaque reference to JSON node tree data structure/object. <br /></td></tr>
+<tr class="separator:a9cb081af11c781d6f4eb55a746bc7689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aab736d12c9e3a26dc95d432c0a6f2198"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aab736d12c9e3a26dc95d432c0a6f2198">JSON_Parse</a> (const char *jsonString)</td></tr>
-<tr class="memdesc:aab736d12c9e3a26dc95d432c0a6f2198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate JSON tree data structure from a serialized JSON string.  <a href="#aab736d12c9e3a26dc95d432c0a6f2198">More...</a><br /></td></tr>
-<tr class="separator:aab736d12c9e3a26dc95d432c0a6f2198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ca934ea442c0d7f1752bfa2182244be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a7ca934ea442c0d7f1752bfa2182244be">JSON_Create</a> (long type, const char *key)</td></tr>
-<tr class="memdesc:a7ca934ea442c0d7f1752bfa2182244be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create root/base JSON node of given type.  <a href="#a7ca934ea442c0d7f1752bfa2182244be">More...</a><br /></td></tr>
-<tr class="separator:a7ca934ea442c0d7f1752bfa2182244be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f779a13ea6c0ae0f54b6eb5494f20af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a3f779a13ea6c0ae0f54b6eb5494f20af">JSON_Set</a> (<a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, const char *value)</td></tr>
-<tr class="memdesc:a3f779a13ea6c0ae0f54b6eb5494f20af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set value of given JSON node.  <a href="#a3f779a13ea6c0ae0f54b6eb5494f20af">More...</a><br /></td></tr>
-<tr class="separator:a3f779a13ea6c0ae0f54b6eb5494f20af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa613b01546abd7b7999783c94d262d8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aa613b01546abd7b7999783c94d262d8f">JSON_Clear</a> (<a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root)</td></tr>
-<tr class="memdesc:aa613b01546abd7b7999783c94d262d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear value of given node or destroy its children, if internal.  <a href="#aa613b01546abd7b7999783c94d262d8f">More...</a><br /></td></tr>
-<tr class="separator:aa613b01546abd7b7999783c94d262d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8098c9dee495204c5f61d04b8310d33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#af8098c9dee495204c5f61d04b8310d33">JSON_Destroy</a> (<a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root)</td></tr>
-<tr class="memdesc:af8098c9dee495204c5f61d04b8310d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy given node and its children, if any.  <a href="#af8098c9dee495204c5f61d04b8310d33">More...</a><br /></td></tr>
-<tr class="separator:af8098c9dee495204c5f61d04b8310d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af89f145a67e767e3ea32b2a80c16a9f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#af89f145a67e767e3ea32b2a80c16a9f4">JSON_FindByKey</a> (const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, const char *key)</td></tr>
-<tr class="memdesc:af89f145a67e767e3ea32b2a80c16a9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find node (inside a BRACE type node) by its key.  <a href="#af89f145a67e767e3ea32b2a80c16a9f4">More...</a><br /></td></tr>
-<tr class="separator:af89f145a67e767e3ea32b2a80c16a9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7609dcd15a3f8b94db899459224a628d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a7609dcd15a3f8b94db899459224a628d">JSON_FindByIndex</a> (const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, long index)</td></tr>
-<tr class="memdesc:a7609dcd15a3f8b94db899459224a628d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find node (inside a BRACKET type node) by its index.  <a href="#a7609dcd15a3f8b94db899459224a628d">More...</a><br /></td></tr>
-<tr class="separator:a7609dcd15a3f8b94db899459224a628d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad000d6cecb011256f0a8b5aa1a13db9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#ad000d6cecb011256f0a8b5aa1a13db9c">JSON_FindByPath</a> (const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, int pathArgsCount,...)</td></tr>
-<tr class="memdesc:ad000d6cecb011256f0a8b5aa1a13db9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find node following a sequence of keys and/or indexes.  <a href="#ad000d6cecb011256f0a8b5aa1a13db9c">More...</a><br /></td></tr>
-<tr class="separator:ad000d6cecb011256f0a8b5aa1a13db9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15466652de10316e5c8f2fd458e3ac2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a15466652de10316e5c8f2fd458e3ac2c">JSON_Print</a> (const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root)</td></tr>
-<tr class="memdesc:a15466652de10316e5c8f2fd458e3ac2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display JSON data tree as a formatted string.  <a href="#a15466652de10316e5c8f2fd458e3ac2c">More...</a><br /></td></tr>
-<tr class="separator:a15466652de10316e5c8f2fd458e3ac2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d1c90ff179ed73e140153e2b11fdaeb"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a1d1c90ff179ed73e140153e2b11fdaeb">JSON_GetString</a> (const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, int mode)</td></tr>
-<tr class="memdesc:a1d1c90ff179ed73e140153e2b11fdaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write JSON data tree to a string.  <a href="#a1d1c90ff179ed73e140153e2b11fdaeb">More...</a><br /></td></tr>
-<tr class="separator:a1d1c90ff179ed73e140153e2b11fdaeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae375003635e3e2dbab1e89f8e40b6cdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#ae375003635e3e2dbab1e89f8e40b6cdb">JSON_AddKey</a> (<a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, long type, const char *key)</td></tr>
-<tr class="memdesc:ae375003635e3e2dbab1e89f8e40b6cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add JSON node to JSON_TYPE_BRACE type node.  <a href="#ae375003635e3e2dbab1e89f8e40b6cdb">More...</a><br /></td></tr>
-<tr class="separator:ae375003635e3e2dbab1e89f8e40b6cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a168d513bbc8b41aa6e92c4d431f9d2a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a168d513bbc8b41aa6e92c4d431f9d2a6">JSON_AddIndex</a> (<a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *root, long type)</td></tr>
-<tr class="memdesc:a168d513bbc8b41aa6e92c4d431f9d2a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append JSON node to JSON_TYPE_BRACKET type node.  <a href="#a168d513bbc8b41aa6e92c4d431f9d2a6">More...</a><br /></td></tr>
-<tr class="separator:a168d513bbc8b41aa6e92c4d431f9d2a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ca59613f67f66e4842e1fb35406d28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a75ca59613f67f66e4842e1fb35406d28">JSON_Parse</a> (const char *jsonString)</td></tr>
+<tr class="memdesc:a75ca59613f67f66e4842e1fb35406d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate JSON tree data structure from a serialized JSON string.  <a href="#a75ca59613f67f66e4842e1fb35406d28">More...</a><br /></td></tr>
+<tr class="separator:a75ca59613f67f66e4842e1fb35406d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2967c2eb006583a94cce0e5d41c9c6e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a2967c2eb006583a94cce0e5d41c9c6e4">JSON_Create</a> (long type, const char *key)</td></tr>
+<tr class="memdesc:a2967c2eb006583a94cce0e5d41c9c6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create root/base JSON node of given type.  <a href="#a2967c2eb006583a94cce0e5d41c9c6e4">More...</a><br /></td></tr>
+<tr class="separator:a2967c2eb006583a94cce0e5d41c9c6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb1ac3fe60a71edfd0b441d519853a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#abb1ac3fe60a71edfd0b441d519853a6c">JSON_Set</a> (<a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, const char *value)</td></tr>
+<tr class="memdesc:abb1ac3fe60a71edfd0b441d519853a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set value of given JSON node.  <a href="#abb1ac3fe60a71edfd0b441d519853a6c">More...</a><br /></td></tr>
+<tr class="separator:abb1ac3fe60a71edfd0b441d519853a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0cbb0aad44ed335ff1f446531be155b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#ab0cbb0aad44ed335ff1f446531be155b">JSON_Clear</a> (<a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root)</td></tr>
+<tr class="memdesc:ab0cbb0aad44ed335ff1f446531be155b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear value of given node or destroy its children, if internal.  <a href="#ab0cbb0aad44ed335ff1f446531be155b">More...</a><br /></td></tr>
+<tr class="separator:ab0cbb0aad44ed335ff1f446531be155b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ae2c725b897dc194507359e1ba926a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a82ae2c725b897dc194507359e1ba926a">JSON_Destroy</a> (<a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root)</td></tr>
+<tr class="memdesc:a82ae2c725b897dc194507359e1ba926a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy given node and its children, if any.  <a href="#a82ae2c725b897dc194507359e1ba926a">More...</a><br /></td></tr>
+<tr class="separator:a82ae2c725b897dc194507359e1ba926a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af75093a69514d48c549a95001a41538c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#af75093a69514d48c549a95001a41538c">JSON_FindByKey</a> (const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, const char *key)</td></tr>
+<tr class="memdesc:af75093a69514d48c549a95001a41538c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find node (inside a BRACE type node) by its key.  <a href="#af75093a69514d48c549a95001a41538c">More...</a><br /></td></tr>
+<tr class="separator:af75093a69514d48c549a95001a41538c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e6c93124e41abbe50bb9f7bc682130"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#aa7e6c93124e41abbe50bb9f7bc682130">JSON_FindByIndex</a> (const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, long index)</td></tr>
+<tr class="memdesc:aa7e6c93124e41abbe50bb9f7bc682130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find node (inside a BRACKET type node) by its index.  <a href="#aa7e6c93124e41abbe50bb9f7bc682130">More...</a><br /></td></tr>
+<tr class="separator:aa7e6c93124e41abbe50bb9f7bc682130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a067c3b9896f3654f0f45df3c9a1f8147"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a067c3b9896f3654f0f45df3c9a1f8147">JSON_FindByPath</a> (const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, int pathArgsCount,...)</td></tr>
+<tr class="memdesc:a067c3b9896f3654f0f45df3c9a1f8147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find node following a sequence of keys and/or indexes.  <a href="#a067c3b9896f3654f0f45df3c9a1f8147">More...</a><br /></td></tr>
+<tr class="separator:a067c3b9896f3654f0f45df3c9a1f8147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d41f2092555730dbfcd342df05394e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a7d41f2092555730dbfcd342df05394e4">JSON_Print</a> (const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root)</td></tr>
+<tr class="memdesc:a7d41f2092555730dbfcd342df05394e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display JSON data tree as a formatted string.  <a href="#a7d41f2092555730dbfcd342df05394e4">More...</a><br /></td></tr>
+<tr class="separator:a7d41f2092555730dbfcd342df05394e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c2e062973f0356f6317dde04a9283b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#ae2c2e062973f0356f6317dde04a9283b">JSON_GetString</a> (const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, int mode)</td></tr>
+<tr class="memdesc:ae2c2e062973f0356f6317dde04a9283b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write JSON data tree to a string.  <a href="#ae2c2e062973f0356f6317dde04a9283b">More...</a><br /></td></tr>
+<tr class="separator:ae2c2e062973f0356f6317dde04a9283b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb24c08c29af1a5d93448bb754eb0bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#abfb24c08c29af1a5d93448bb754eb0bc">JSON_AddKey</a> (<a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, long type, const char *key)</td></tr>
+<tr class="memdesc:abfb24c08c29af1a5d93448bb754eb0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add JSON node to JSON_TYPE_BRACE type node.  <a href="#abfb24c08c29af1a5d93448bb754eb0bc">More...</a><br /></td></tr>
+<tr class="separator:abfb24c08c29af1a5d93448bb754eb0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af06fbbaa64070f5f981907017fb3b95a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#af06fbbaa64070f5f981907017fb3b95a">JSON_AddIndex</a> (<a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> root, long type)</td></tr>
+<tr class="memdesc:af06fbbaa64070f5f981907017fb3b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append JSON node to JSON_TYPE_BRACKET type node.  <a href="#af06fbbaa64070f5f981907017fb3b95a">More...</a><br /></td></tr>
+<tr class="separator:af06fbbaa64070f5f981907017fb3b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions to create, delete, read and write JSON data structures. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a168d513bbc8b41aa6e92c4d431f9d2a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a168d513bbc8b41aa6e92c4d431f9d2a6">&#9670;&nbsp;</a></span>JSON_AddIndex()</h2>
+<a id="af06fbbaa64070f5f981907017fb3b95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06fbbaa64070f5f981907017fb3b95a">&#9670;&nbsp;</a></span>JSON_AddIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_AddIndex </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_AddIndex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -209,16 +206,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae375003635e3e2dbab1e89f8e40b6cdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae375003635e3e2dbab1e89f8e40b6cdb">&#9670;&nbsp;</a></span>JSON_AddKey()</h2>
+<a id="abfb24c08c29af1a5d93448bb754eb0bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb24c08c29af1a5d93448bb754eb0bc">&#9670;&nbsp;</a></span>JSON_AddKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_AddKey </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_AddKey </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -254,8 +251,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa613b01546abd7b7999783c94d262d8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa613b01546abd7b7999783c94d262d8f">&#9670;&nbsp;</a></span>JSON_Clear()</h2>
+<a id="ab0cbb0aad44ed335ff1f446531be155b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0cbb0aad44ed335ff1f446531be155b">&#9670;&nbsp;</a></span>JSON_Clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +260,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void JSON_Clear </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em></td><td>)</td>
           <td></td>
         </tr>
@@ -280,14 +277,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7ca934ea442c0d7f1752bfa2182244be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ca934ea442c0d7f1752bfa2182244be">&#9670;&nbsp;</a></span>JSON_Create()</h2>
+<a id="a2967c2eb006583a94cce0e5d41c9c6e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2967c2eb006583a94cce0e5d41c9c6e4">&#9670;&nbsp;</a></span>JSON_Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_Create </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_Create </td>
           <td>(</td>
           <td class="paramtype">long&#160;</td>
           <td class="paramname"><em>type</em>, </td>
@@ -318,8 +315,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af8098c9dee495204c5f61d04b8310d33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8098c9dee495204c5f61d04b8310d33">&#9670;&nbsp;</a></span>JSON_Destroy()</h2>
+<a id="a82ae2c725b897dc194507359e1ba926a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ae2c725b897dc194507359e1ba926a">&#9670;&nbsp;</a></span>JSON_Destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +324,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void JSON_Destroy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em></td><td>)</td>
           <td></td>
         </tr>
@@ -344,16 +341,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7609dcd15a3f8b94db899459224a628d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7609dcd15a3f8b94db899459224a628d">&#9670;&nbsp;</a></span>JSON_FindByIndex()</h2>
+<a id="aa7e6c93124e41abbe50bb9f7bc682130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7e6c93124e41abbe50bb9f7bc682130">&#9670;&nbsp;</a></span>JSON_FindByIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_FindByIndex </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_FindByIndex </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -382,16 +379,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af89f145a67e767e3ea32b2a80c16a9f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af89f145a67e767e3ea32b2a80c16a9f4">&#9670;&nbsp;</a></span>JSON_FindByKey()</h2>
+<a id="af75093a69514d48c549a95001a41538c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af75093a69514d48c549a95001a41538c">&#9670;&nbsp;</a></span>JSON_FindByKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_FindByKey </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_FindByKey </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -420,16 +417,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad000d6cecb011256f0a8b5aa1a13db9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad000d6cecb011256f0a8b5aa1a13db9c">&#9670;&nbsp;</a></span>JSON_FindByPath()</h2>
+<a id="a067c3b9896f3654f0f45df3c9a1f8147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a067c3b9896f3654f0f45df3c9a1f8147">&#9670;&nbsp;</a></span>JSON_FindByPath()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_FindByPath </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_FindByPath </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -464,8 +461,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1d1c90ff179ed73e140153e2b11fdaeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d1c90ff179ed73e140153e2b11fdaeb">&#9670;&nbsp;</a></span>JSON_GetString()</h2>
+<a id="ae2c2e062973f0356f6317dde04a9283b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2c2e062973f0356f6317dde04a9283b">&#9670;&nbsp;</a></span>JSON_GetString()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -473,7 +470,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">char* JSON_GetString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -502,14 +499,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aab736d12c9e3a26dc95d432c0a6f2198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab736d12c9e3a26dc95d432c0a6f2198">&#9670;&nbsp;</a></span>JSON_Parse()</h2>
+<a id="a75ca59613f67f66e4842e1fb35406d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ca59613f67f66e4842e1fb35406d28">&#9670;&nbsp;</a></span>JSON_Parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a>* JSON_Parse </td>
+          <td class="memname"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a> JSON_Parse </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>jsonString</em></td><td>)</td>
@@ -529,8 +526,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a15466652de10316e5c8f2fd458e3ac2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15466652de10316e5c8f2fd458e3ac2c">&#9670;&nbsp;</a></span>JSON_Print()</h2>
+<a id="a7d41f2092555730dbfcd342df05394e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d41f2092555730dbfcd342df05394e4">&#9670;&nbsp;</a></span>JSON_Print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,7 +535,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void JSON_Print </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em></td><td>)</td>
           <td></td>
         </tr>
@@ -555,8 +552,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3f779a13ea6c0ae0f54b6eb5494f20af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f779a13ea6c0ae0f54b6eb5494f20af">&#9670;&nbsp;</a></span>JSON_Set()</h2>
+<a id="abb1ac3fe60a71edfd0b441d519853a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb1ac3fe60a71edfd0b441d519853a6c">&#9670;&nbsp;</a></span>JSON_Set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,7 +561,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void JSON_Set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="json_8h.html#a4e486251f655e74cae7f394ca82647e3">JSONNode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="json_8h.html#a9cb081af11c781d6f4eb55a746bc7689">JSONNode</a>&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>

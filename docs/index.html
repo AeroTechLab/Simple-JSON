@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Simple JSON: Simple-JSON</title>
+<title>Simple JSON: Simple JSON</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,10 +59,20 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Simple-JSON </div>  </div>
+<div class="title">Simple JSON </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Standalone JSON library for embedded systems </p>
+<div class="textblock"><p>Standalone (single source file, no additional dependencies) library for manipulating <a href="http://www.json.org/">JSON</a> formatted data, including:</p>
+<ul>
+<li>Reading JSON strings to data structures</li>
+<li>Generating JSON strings from JSON data structures</li>
+<li>Creating JSON data structure from scratch (initially empty)</li>
+<li>Adding and deleting JSON fields/nodes</li>
+<li>Reading and writing JSON field values</li>
+</ul>
+<p>This project is intended for embedded systems, where there is no available version of more mature libraries like <a href="https://github.com/json-c/json-c">JSON-C</a> and <a href="https://github.com/open-source-parsers/jsoncpp">JsonCpp</a>.</p>
+<h3>Documentation</h3>
+<p>Descriptions of how the functions and data structures work are available at the <a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a>-generated <a href="https://labdin.github.io/Simple-JSON/json_8h.html">documentation pages</a>. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
