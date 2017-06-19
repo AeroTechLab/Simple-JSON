@@ -61,12 +61,7 @@
 
 #include <string.h>
 
-#define JSON_TYPE_NULL      0
-#define JSON_TYPE_BOOLEAN   1
-#define JSON_TYPE_NUMBER    2
-#define JSON_TYPE_STRING    3
-#define JSON_TYPE_BRACKET   4
-#define JSON_TYPE_BRACE     5
+enum JSONNodeType { JSON_TYPE_NULL, JSON_TYPE_BOOLEAN, JSON_TYPE_NUMBER, JSON_TYPE_STRING, JSON_TYPE_BRACKET, JSON_TYPE_BRACE };
 
 #define JSON_OK                0
 #define JSON_ERROR_UNEXPECTED  1
@@ -82,8 +77,6 @@ typedef struct _JSONNodeData JSONNodeData;
 /// Opaque reference to JSON node tree data structure/object
 typedef JSONNodeData* JSONNode;
 
-#define JSON_IS_INTERNAL( node ) ( (node)->type == JSON_TYPE_BRACKET || (node)->type == JSON_TYPE_BRACE )
-
 /// @brief Generate JSON tree data structure from a serialized JSON string
 /// @param jsonString serialized JSON string
 /// @return reference/pointer to root node of generated JSON tree data structure
@@ -93,7 +86,13 @@ JSONNode JSON_Parse( const char* jsonString );
 /// @param type enum value defining node type (JSON_TYPE_{NULL,BOOLEAN,NUMBER,STRING,BRACKET,BRACE})
 /// @param key string key to index the node. NULL for node without key
 /// @return reference/pointer to created node. NULL on errors
-JSONNode JSON_Create( long type, const char* key );
+JSONNode JSON_Create( enum JSONNodeType type, const char* key );
+
+enum JSONNodeType JSON_GetType( JSONNode root );
+
+const char* JSON_Get( JSONNode root );
+
+unsigned long JSON_GetChildrenCount( JSONNode root );
 
 /// @brief Set value of given JSON node
 /// @param root node for which the value will be set
