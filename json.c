@@ -60,6 +60,7 @@
 #include <stdio.h>
 #include "json.h"
 
+#define JSON_IS_INTERNAL( node ) ( (node)->type == JSON_TYPE_BRACKET || (node)->type == JSON_TYPE_BRACE )
 
 struct _JSONNodeData 
 {
@@ -168,7 +169,7 @@ JSONNode JSON_Parse( const char *jsonString )
   return root;
 }
 
-JSONNode JSON_Create( long type, const char* key )
+JSONNode JSON_Create( enum JSONNodeType type, const char* key )
 {
   JSONNode newNode = (JSONNode) malloc( sizeof(JSONNodeData) );
   newNode->key = NULL;
@@ -177,14 +178,14 @@ JSONNode JSON_Create( long type, const char* key )
     newNode->key = (char*) calloc( strlen( key ) + 1, sizeof(char) );
     strcpy( newNode->key, key );
   }
-  newNode->type = type;
+  newNode->type = (long) type;
   if( JSON_IS_INTERNAL( newNode ) ) newNode->childrenList = NULL;
   else newNode->value = NULL;
   newNode->childrenCount = 0;
   return newNode;
 }
 
-JSONNode JSON_AddNode( JSONNode root, long type, const char *key )
+JSONNode JSON_AddNode( JSONNode root, enum JSONNodeType type, const char *key )
 {
   if( root->childrenCount++ == 0 ) root->childrenList = NULL;
   root->childrenList = (JSONNode*) realloc( root->childrenList, (size_t) root->childrenCount * sizeof(JSONNode) );
@@ -194,7 +195,7 @@ JSONNode JSON_AddNode( JSONNode root, long type, const char *key )
   return root->childrenList[ root->childrenCount - 1 ];
 }
 
-JSONNode JSON_AddKey( JSONNode root, long type, const char* key )
+JSONNode JSON_AddKey( JSONNode root, enum JSONNodeType type, const char* key )
 {
   if( root->type != JSON_TYPE_BRACE ) return NULL;
   for( long childIndex = 0; childIndex < (long) root->childrenCount; ++childIndex ) 
@@ -206,10 +207,27 @@ JSONNode JSON_AddKey( JSONNode root, long type, const char* key )
   return JSON_AddNode( root, type, key );
 }
 
-JSONNode JSON_AddIndex( JSONNode root, long type )
+JSONNode JSON_AddIndex( JSONNode root, enum JSONNodeType type )
 {
   if( root->type != JSON_TYPE_BRACKET ) return NULL;
   return JSON_AddNode( root, type, NULL );
+}
+
+enum JSONNodeType JSON_GetType( JSONNode root )
+{
+  return (enum JSONNodeType) root->type;
+}
+
+const char* JSON_Get( JSONNode root )
+{
+  if( JSON_IS_INTERNAL( root ) ) return NULL;
+  
+  return (const char*) root->value;
+}
+
+unsigned long JSON_GetChildrenCount( JSONNode root )
+{
+  return root->childrenCount;
 }
 
 void JSON_Set( JSONNode root, const char* value )
