@@ -140,12 +140,12 @@ char* JSON_GetString( const JSONNode root, int mode );
 /// @param type type of new child node to be added
 /// @param key key of new child node to be added
 /// @return reference/pointer to newly created child node. NULL on errors
-JSONNode JSON_AddKey( JSONNode root, long type, const char* key );
+JSONNode JSON_AddKey( JSONNode root, enum JSONNodeType type, const char* key );
     
 /// @brief Append JSON node to JSON_TYPE_BRACKET type node
 /// @param root parent JSON_TYPE_BRACKET type node to which new node will be appended
 /// @param type type of new child node to be appended
 /// @return reference/pointer to newly created child node. NULL on errors
-JSONNode JSON_AddIndex( JSONNode root, long type );
+JSONNode JSON_AddIndex( JSONNode root, enum JSONNodeType type );
 
 #endif // JSON_H
