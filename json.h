@@ -25,7 +25,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                      //
-//  Modified work Copyright (c) 2016-2017 Leonardo Consoni <consoni_2519@hotmail.com>   //
+//  Modified work Copyright (c) 2016-2019 Leonardo Consoni <consoni_2519@hotmail.com>   //
 //                                                                                      //
 //  This file is part of Platform Utils.                                                //
 //                                                                                      //
